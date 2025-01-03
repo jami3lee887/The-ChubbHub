@@ -18,7 +18,7 @@ from sklearn.metrics import accuracy_score
 def GetGameLog(team):
     
     # URL of the page to scrape
-    url = 'https://www.teamrankings.com/nfl/team/detroit-lions/game-log'
+    url = 'https://www.teamrankings.com/college-football/team/mississippi-rebels/game-log'
     
     # Send a GET request to fetch the page content
     headers = {'User-Agent': 'Mozilla/5.0'}  # Set a user-agent to avoid blocking
@@ -55,7 +55,7 @@ def GetGameLog(team):
 
 def GetOverUnder(team):
     # URL of the page to scrape
-    url = 'https://www.teamrankings.com/nfl/team/detroit-lions/over-under-results'
+    url = 'https://www.teamrankings.com/college-football/team/mississippi-rebels/over-under-results'
     
     # Send a GET request to fetch the page content
     headers = {'User-Agent': 'Mozilla/5.0'}  # Set a user-agent to avoid blocking
@@ -86,18 +86,19 @@ def TeamData():
     #print(game_log)
     #print(over_under_log)
     
+    
 def ML():
 
     data = TeamData()
-    #print(data)
+    print(data)
     
     # Features and target
     X = data[['Pts', 'Opp Pts', 'Total']]
     y = data['Over_Under']
     
     # Split data into training and test sets
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
-    
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+
     # Create and train logistic regression model
     model = LogisticRegression()
     model.fit(X_train, y_train)
@@ -112,9 +113,9 @@ def ML():
     
     # Prepare the input as a DataFrame
     future_game = pd.DataFrame({
-        'Pts': [33.3],
-        'Opp Pts': [26.4],
-        'Total': [55.5]
+        'Pts': [34],
+        'Opp Pts': [26.9],
+        'Total': [51.5]
     })
     
     # Predict the probability that the OVER line will hit
