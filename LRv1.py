@@ -72,11 +72,11 @@ def GetOverUnder(team):
     game_log = tables[0]
     return game_log
     
-
-def TeamData():
+#merging all the dashboard 
+def TeamData(team):
     global game_log
-    game_log = GetGameLog('insert-team')
-    over_under_log = GetOverUnder('insert-team')
+    game_log = GetGameLog(team)
+    over_under_log = GetOverUnder(team)
     
     game_log = game_log.merge(over_under_log[['Score','Total','Result','Diff']],on="Score",how="left")
     
@@ -86,10 +86,10 @@ def TeamData():
     #print(game_log)
     #print(over_under_log)
     
-    
-def ML():
+#where da machine learning happens mode
+def ML(team):
 
-    data = TeamData()
+    data = TeamData(team)
     print(data)
     
     # Features and target
@@ -124,5 +124,5 @@ def ML():
     # Output the result
     print(f"\nThe model predicts a {probability:.2f} confidence that the OVER line will hit.")
     
-ML()
+ML('mississipi-rebels')
 
