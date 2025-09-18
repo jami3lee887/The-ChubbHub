@@ -1,0 +1,73 @@
+# --- Python bytecode & build ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.dylib
+.build/
+build/
+dist/
+.eggs/
+*.egg-info/
+*.egg
+
+# --- Virtual environments ---
+venv/
+.venv/
+env/
+.env/
+ENV/
+.python_env/
+.python-version
+
+# --- Jupyter / notebooks ---
+.ipynb_checkpoints/
+.profile_default/
+*.ipynb_convert/
+
+# --- Editors / IDEs ---
+.vscode/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.iml
+
+# --- OS noise ---
+.DS_Store
+Thumbs.db
+
+# --- Logs & caches ---
+*.log
+logs/
+.cache/
+.mypy_cache/
+.pytype/
+.pyre/
+pytest_cache/
+
+# --- Tooling ---
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# --- Local data & outputs (adjust as you like) ---
+data/
+inputs/
+outputs/
+tmp/
+*.csv
+*.parquet
+
+# --- Secrets / config ---
+.env
+*.env
+*.key
+*.pem
+
+# --- Spyder-specific (since you're running from Spyder) ---
+.spyproject/
+.spyderproject
+.spyderworkspace
